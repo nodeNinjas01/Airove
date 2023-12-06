@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Airove</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- Nice Select CSS -->
+      <!-- <link rel="stylesheet" href="css/nice-select.css"> -->
+      <!-- bootstrap css -->
+      <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+      <!-- style css -->
+      <link rel="stylesheet" href="assets/style.css">
+      <!-- Responsive-->
+      <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+      <!-- fevicon -->
+      <!-- <link rel="icon" href="images/fevicon.png" type="image/gif" /> -->
+      <!-- Scrollbar Custom CSS -->
+      <!-- <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"> -->
+      <!-- Tweaks for older IEs-->
+      <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"> -->
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <!-- <body class="main-layout">
+       loader
+      <div class="loader_bg">
+         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+      </div> -->
+      <!-- end loader -->
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="container">
+               <div class="col-md-3">
+                  <div class="div-col"><span class="black-header logo">Airove</span></div>
+                  <div class="div-col"><span class="grey-text green-text">Home</span></div>
+                  <div class="div-col" onclick="FlightPage()"><span class="grey-text">Flights</span></div>
+                  <div class="div-col"><span class="grey-text">About</span></div>
+                  <div class="div-col">
+                     <a href="#" class="grey-text" style="color: #c20114;" >Sign In</a>
+                     <a href="#" class="red-button" onclick="signUpPage()">Sign Up</a>
+                  </div>
+               </div>
+         </div>
+      </header>
+      <!-- end header inner -->
+      <!-- end header -->
+      <!-- banner -->
+      <main class="main">
+         <div class="main-home">
+            <section class="banner_main">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="text-bg">
+                           <div class="padding_lert">
+                              <span>Let's get you started on an adventure</span>
+                              <p>Welcome to Airove, with just a few clicks, you can book a flight <br> to any destination you desire</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- end banner -->
+            <!-- form_lebal -->
+            <section>
+               <div class="container">
+                        <form class="form_book">
+                           <span class="black-header">Flights</span>
+                           <div class="">
+                              <div class="col-md-3">
+                                 <select name="one-trip" id="round-trip" class="nice-select shadow">
+                                    <option value="o-trip">One Trip</option>
+                                 </select>
+                                 <select name="economy" id="economy" class="nice-select shadow">
+                                       <option value="economy">Economy</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-3">
+                                 <div class="inner-col shadow">
+                                    <div>
+                                    <label for="leaving" class="label">Leaving</label><br>
+                                    <select name="leaving" id="leaving" class="nice-select">
+                                       <option value="leaving">Select country</option>
+                                    </select>
+                                    </div>
+                                    <div class="vl"></div>
+                                    <div>
+                                       <label for="arriving" class="label">Arriving</label> <br>
+                                    <select name="arriving" id="arriving" class="nice-select">
+                                       <option value="arriving">Select country</option>
+                                    </select>
+                                    </div>
+                                 </div>
+                                 <div class="inner-col shadow">
+                                    <div>
+                                       <label for="leaving" class="label">Departure date</label><br>
+                                       <select name="departure-date" id="departure-date" class="nice-select">
+                                          <option value="departure-date">Select date</option>
+                                       </select>
+                                       </div>
+                                       <div class="vl"></div>
+                                       <div>
+                                          <label for="arriving" class="label">Arrival date</label> <br>
+                                       <select name="arrival-date" id="arrival-date" class="nice-select">
+                                          <option value="arrival-date">Select date</option>
+                                       </select>
+                                       </div>
+                                 </div>
+                                    <div class="inner-col">
+                                       <select name="number" id="number" class="nice-select shadow">
+                                          <option value="number">1</option>
+                                       </select>    
+                                    </div>         
+                                    <div class="inner-col">
+                                       <button class="red-button shadow s-font">
+                                          Search
+                                       </button>       
+                                    </div>
+                              </div>
+                           </div>
+                        </form>
+               </div>
+            </section>
+            <!-- end form_lebal -->
+            <!-- choose  section -->
+            <div class="choose">
+               <div class="container">
+                        <div class="choose_box">
+                            <!-- <img src="./assets/img/background.svg" alt=""> -->
+                           <div class="titlepage">
+                              <span class="black-header">Explore Popular Destinations</span> <br>
+                           </div>
+                        </div>
+                           <div class="col-md-3">
+                              <div class="div-col shadow"><div class="vertical-col"><img src="./assets/img/ryan-miglinczy-02n9_v-d1yY-unsplash.jpg" class="dubai-img" alt="#"/><div class="vertical-col div-on-img"><span class="black-header">Lagos - Dubai <img src="./assets/img/stars.svg" class="stars" alt=""></span><span class="grey-text thin">Price ranging from</span><span class="btc">0.022BTC - 0.032BTC</span><span class="bold-red-text">View more details</span></div></div></div>
+                              <div class="div-col shadow"><div class="vertical-col"><img src="./assets/img/ryan-miglinczy-02n9_v-d1yY-unsplash.jpg" class="dubai-img" alt="#"/><div class="vertical-col div-on-img"><span class="black-header">Lagos - Dubai <img src="./assets/img/stars.svg" class="stars" alt=""></span><span class="grey-text thin">Price ranging from</span><span class="btc">0.022BTC - 0.032BTC</span><span class="bold-red-text">View more details</span></div></div></div>
+                              <div class="div-col shadow"><div class="vertical-col"><img src="./assets/img/ryan-miglinczy-02n9_v-d1yY-unsplash.jpg" class="dubai-img" alt="#"/><div class="vertical-col div-on-img"><span class="black-header">Lagos - Dubai <img src="./assets/img/stars.svg" class="stars" alt=""></span><span class="grey-text thin">Price ranging from</span><span class="btc">0.022BTC - 0.032BTC</span><span class="bold-red-text">View more details</span></div></div></div>
+                        </div>
+                  </div>
+            </div>
+         </div>
+         <div class="main-flight">
+            <div class="flight-container">
+                <section>
+                    <div class="container">
+                             <form class="form_book">
+                                <span class="black-header">Flights</span>
+                                <div class="">
+                                   <div class="col-md-3">
+                                      <select name="one-trip" id="round-trip" class="nice-select shadow">
+                                         <option value="o-trip">One Trip</option>
+                                      </select>
+                                      <select name="economy" id="economy" class="nice-select shadow">
+                                            <option value="economy">Economy</option>
+                                      </select>
+                                   </div>
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-3">
+                                      <div class="inner-col shadow">
+                                         <div>
+                                         <label for="leaving" class="label">Leaving</label><br>
+                                         <select name="leaving" id="leaving" class="nice-select">
+                                            <option value="leaving">Select country</option>
+                                         </select>
+                                         </div>
+                                         <div class="vl"></div>
+                                         <div>
+                                            <label for="arriving" class="label">Arriving</label> <br>
+                                         <select name="arriving" id="arriving" class="nice-select">
+                                            <option value="arriving">Select country</option>
+                                         </select>
+                                         </div>
+                                      </div>
+                                      <div class="inner-col shadow">
+                                         <div>
+                                            <label for="leaving" class="label">Departure date</label><br>
+                                            <select name="departure-date" id="departure-date" class="nice-select">
+                                               <option value="departure-date">Select date</option>
+                                            </select>
+                                            </div>
+                                            <div class="vl"></div>
+                                            <div>
+                                               <label for="arriving" class="label">Arrival date</label> <br>
+                                            <select name="arrival-date" id="arrival-date" class="nice-select">
+                                               <option value="arrival-date">Select date</option>
+                                            </select>
+                                            </div>
+                                      </div>
+                                         <div class="inner-col">
+                                            <select name="number" id="number" class="nice-select shadow">
+                                               <option value="number">1</option>
+                                            </select>    
+                                         </div>         
+                                         <div class="inner-col">
+                                            <button class="red-button shadow s-font">
+                                               Search
+                                            </button>       
+                                         </div>
+                                   </div>
+                                </div>
+                             </form>
+                    </div>
+                 </section>
+                 <aside class=" col-md-3">
+                    <div class="vertical-col shadow aside">
+                        <div class="filter">
+                            <img src="./assets/img/filter-icon.svg" alt="">
+                            <span class="black-header airline-headers">Filter</span>
+                            <span style="color: #c20114;">Clear all</span>
+                        </div>
+                        <div class="vertical-col">
+                            <span class="black-header airline-headers">Price</span>
+                            <label for="price">
+                                <input type="number" class="price" placeholder="Type price here">
+                            </label>
+                        </div>
+                        <div class="vertical-col">
+                            <span class="black-header airline-headers">Airline</span>
+                            <label for="checkbox">Multiple airlines
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">British Airways
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Virgin Atlantic
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Emirates
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Turkish Airlines
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Ethiopian Airlines
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Qatar Airways
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                        </div>
+                        <div class="vertical-col">
+                            <span class="black-header airline-headers">Number of stops</span>
+                            <label for="checkbox">No stop
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">One stop
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                        </div>
+                        <div class="vertical-col">
+                            <span class="black-header airline-headers">Cabin</span>
+                            <label for="checkbox">Economy class
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Business class
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                        </div>
+                        <div class="vertical-col">
+                            <span class="black-header airline-headers">Ticket flexibility</span>
+                            <label for="checkbox">Refundable
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Non-refundable
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                        </div>
+                        <div class="vertical-col">
+                            <span class="black-header airline-headers">Airports</span>
+                            <label for="checkbox">Murtala <br> Muhammed <br>International <br>Airport, Lagos(LOS)
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                            <label for="checkbox">Nnamdi Azikiwe <br> International <br> Airport, Abuja(ABV)
+                                <input type="checkbox" class="checkbox">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="vertical-col">
+                        <div class="col-md shadow side-bar">
+                            <img src="british.svg" alt="">
+                            <div class=" vertical-col time-period">
+                                <span class="black-header">8:30</span>
+                                <span>Lagos(LOS)</span>
+                            </div>
+                            <div class="vertical-col time-period">
+                                <span>1 stop</span>
+                                <div class="hl"><div class="small-dot"></div></div>
+                                <span class="green-text">10hrs 30m</span>
+                            </div>
+                            <div class=" vertical-col time-period">
+                                <span class="black-header">18:30</span>
+                                <span>London(LHR)</span>
+                            </div>
+                            <div class="dl"></div>
+                            <div class="vertical-col div-on"><span class="">Economy class</span><span class="grey-text thin">Price ranging from</span><span class="btc">0.022BTC - 0.032BTC</span><span class="bold-red-text">View more details</span></div>
+                        </div>
+                        <div class="col-md shadow side-bar">
+                            <img src="british.svg" alt="">
+                            <div class=" vertical-col time-period">
+                                <span class="black-header">8:30</span>
+                                <span>Lagos(LOS)</span>
+                            </div>
+                            <div class="vertical-col time-period">
+                                <span>1 stop</span>
+                                <div class="hl"><div class="small-dot"></div></div>
+                                <span class="green-text">10hrs 30m</span>
+                            </div>
+                            <div class=" vertical-col time-period">
+                                <span class="black-header">18:30</span>
+                                <span>London(LHR)</span>
+                            </div>
+                            <div class="dl"></div>
+                            <div class="vertical-col div-on"><span class="">Economy class</span><span class="grey-text thin">Price ranging from</span><span class="btc">0.022BTC - 0.032BTC</span><span class="bold-red-text">View more details</span></div>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3"></div>
+                    </div>
+                 </aside>
+            </div>
+         </div>
+         <div class="main-sign-up">
+            <div class="div-col sign-up-container ">
+                <span class="logo black-header">Airove</span><br><br>
+                <span class="black-header">Create an account</span>
+                <form action="">
+                    <input type="text" placeholder="Input username" class="input">
+                    <input type="text" placeholder="Create password" class="input">
+                    <input type="submit" class="input red-button" value="Generate DID">
+                </form>
+                <span>Already have an account? <a href="#" style="color: #c20114;">Sign in</a></span>
+            </div>
+         </div>
+      </main>
+      <!-- end choose  section -->
+      <!--  footer -->
+      <footer id="contact">
+         <div class="footer">
+            <div class="col-md-3">
+               <div class=" div-col logo">Airove</div>
+               <div class="services div-col vertical-col">
+                  <span class="black-header white">Services</span>
+                  <span>Flights</span>
+                  <span>Hostels</span>
+                  <span>Feedbacks</span>
+               </div>
+               <div class="about-us div-col vertical-col">
+                  <span class="black-header white">About Us</span>
+                  <span>Company</span>
+                  <span>Help center</span>
+               </div>
+               <div class="account div-col vertical-col">
+                  <span class="black-header white">Account</span>
+                  <span>My Account</span>
+               </div>
+               <div class="find-us div-col vertical-col">
+                  <span class="black-header white">Find us</span>
+                  <span>Twitter</span>
+                  <span>Instagram</span>
+               </div>
+           </div>
+           </div>
+            <div class="copyright">
+               <div class="container" style="text-align: center; margin-top: 20px;">
+                  <span class="white">2023 Airove All Rights Reserved</span><br> 
+                  <span class="white">Terms and conditions</span>
+               </div>
+            </div>
+      </footer>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="./assets/index.js"></script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   </body>
+</html>
+

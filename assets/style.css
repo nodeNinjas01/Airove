@@ -1,0 +1,550 @@
+
+
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400,600,700,900&display=swap');
+
+/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
+ 2) font-family: 'Poppins', sans-serif;
+ ----------------------------------------*****/
+
+
+/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: Orbitron;
+    src: url(../assets/fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+
+* {
+     box-sizing: border-box !important;
+}
+
+html {
+     scroll-behavior: smooth;
+}
+
+body {
+     color: #666666;
+     font-size: 14px;
+     font-family: 'Raleway', sans-serif;
+     line-height: 1.80857;
+     font-weight: normal;
+}
+
+a {
+     color: #1f1f1f;
+     text-decoration: none !important;
+     outline: none !important;
+     -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+     -ms-transition: all .3s ease-in-out;
+     -o-transition: all .3s ease-in-out;
+     transition: all .3s ease-in-out;
+}
+
+/* h1 {
+     font-size: 24px;
+}
+
+h2 {
+     font-size: 22px;
+}
+
+h3 {
+     font-size: 18px;
+}
+
+h4 {
+     font-size: 16px
+}
+
+h5 {
+     font-size: 14px
+}
+
+h6 {
+     font-size: 13px
+}
+
+*,
+*::after,
+*::before {
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+
+button:focus {
+     outline: none;
+} */
+.main-home{
+     display: block;
+     font-family: Montserrat;
+}
+.main-sign-up{
+    display: none;
+    padding: 10px;
+    background-color: #F8F8F8;
+    font-family: Montserrat;
+
+}
+.main-flight{
+    display: none;
+    background-color: #F8F8F8;
+    padding-top: 300px;
+    font-family: Montserrat;
+
+}
+.flight-container{
+}
+
+
+
+img {
+     max-width: 100%;
+     height: auto;
+}
+
+
+
+/* .badge {
+     font-weight: 500;
+}
+
+blockquote {
+     margin: 20px 0 20px;
+     padding: 30px;
+} */
+
+button {
+     border: 0;
+     margin: 0;
+     padding: 0;
+     cursor: pointer;
+}
+
+.full {
+     float: left;
+     width: 100%;
+}
+
+/* .layout_padding {
+     padding-top: 90px;
+     padding-bottom: 90px;
+}
+
+.layout_padding_2 {
+     padding-top: 75px;
+     padding-bottom: 75px;
+} */
+
+
+
+/**-- heading section --**/
+
+
+/*---------------------------- preloader area ----------------------------*/
+
+.loader_bg {
+     position: fixed;
+     z-index: 9999999;
+     background: #fff;
+     width: 100%;
+     height: 100%;
+}
+
+.loader {
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     left: 0;
+     top: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.loader img {
+     width: 280px;
+}
+
+
+/*-- navigation--*/
+
+
+.s-font{
+     font-size: 16px;
+     font-family: Montserrat
+}
+
+
+/*-- header area --*/
+
+
+/*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
+
+.header {
+     background: transparent;
+     background-color: #fff;
+     padding: 20px;
+     text-align: center;
+}
+
+.logo a {
+     font-size: 40px;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: #fff;
+     line-height: 40px;
+}
+
+.logo{
+     font-size: 30px;
+     font-weight: 600;
+     font-family: Orbitron;
+}
+.grey-text{
+    color: #575757;
+     font-size: 19px;
+     font-family: Montserrat
+}
+
+.red-button{
+     background-color: #C20114;
+     font-size: 17px;
+     color: #fff;
+     padding: 15px;
+     border-radius: 7px;
+     width: 100%;
+     font-family: Montserrat
+}
+
+/** banner section **/
+
+.banner_main {
+     background: url(../assets/img/background.svg);
+     background-repeat: no-repeat;
+     min-height: 800px;
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+     background-size: 100% 100%;
+     margin-top: -40px;
+}
+
+.text-bg {
+     text-align: center;
+     padding-bottom: 50px;
+}
+
+.text-bg span {
+     color: #fff;
+     font-size: 45px;
+     line-height: 50px;
+     font-weight: bold;
+     padding-bottom: 20px;
+     display: block;
+}
+
+.text-bg p {
+     color: #fff;
+     font-size: 17px;
+     line-height: 28px;
+     padding-bottom: 50px;
+}
+
+.titlepage {
+     text-align: center;
+     padding-bottom: 60px;
+}
+
+.titlepage h2 {
+     font-size: 55px;
+     color: #313131;
+     line-height: 60px;
+     font-weight: bold;
+     padding: 0;
+}
+
+.d_flex {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+
+/** banner section **/
+
+.black-header{
+     color: black;
+     font-size: 22px;
+     text-transform: capitalize;
+     font-weight: 600;
+     text-align: left;
+}
+
+.form_book {
+     background: #fff;
+     margin-top: -200px;
+     padding: 50px;
+     border-radius: 10px;
+     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+     margin-left: 100px;
+     margin-right: 100px;
+}
+.shadow{
+     margin-top: 20px;
+     /* box-shadow: 1px 1px #c3baba; */
+     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+     border-radius: 7px;
+     padding: 15px;
+     font-family: Montserrat;
+}
+
+.nice-select {
+     background-color: #fff;
+     box-sizing: border-box;
+     clear: both;
+     display: block;
+     height: auto;
+     outline: none;
+     font-size: 16px;
+     position: relative;
+     /* width: auto; */
+     cursor: pointer;
+     font-family: inherit;
+     line-height: 50px;
+     color: #008080;
+     /* text-align: left !important; */
+     font-weight: 300;
+     border: none;
+   }
+   select{
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     
+   }
+   .col-md-3{
+    width: 100%;
+     display: flex;
+     gap: 30px;
+   }
+   .inner-col{
+     width: max-content;
+     border: none;
+     display: flex;  
+     gap: 20px;  
+   }
+   .vl{
+     border-left: 1px solid #008080;
+     height: 80%;
+     padding: 50px 0px 0 0;
+     margin-left: 10px;
+     margin-right: 10px;
+   }
+
+   .label{
+     font-size: 16px;
+     font-weight: 600;
+     margin-left: 5px;
+     font-family: Montserrat;
+     margin-bottom: -20px;
+     padding-bottom: 0;
+   }
+
+   .green-text{
+    color: #008080;
+    font-family: Montserrat;
+   }
+
+/** banner section **/
+
+
+/** Choose  section **/
+
+
+/** Choose  section **/
+
+.choose{
+    margin-bottom: 100px;
+}
+.choose_box {
+     padding-top: 50px;
+
+}
+
+.choose_box .titlepage {
+     text-align: center;
+}
+
+.div-col{
+     padding: 0;
+     align-content: center;
+     width: 20rem;
+     margin: 0 auto;
+}
+
+.vertical-col{
+     display: flex;
+     flex-direction: column;
+}
+
+.dubai-img{
+    height: 100%;
+    border-radius: 10px;
+    width: auto;
+    margin: auto;
+}
+
+.div-on-img{
+    z-index: 1;
+    padding: 20px 20px;
+    padding-right: 2rem;
+    margin-top: -200px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+.stars{
+    margin-left: 2px;
+}
+
+.thin{
+     margin-top: 30px;
+     font-size: 12px;
+}
+.btc{
+     color: #000;
+     font-weight: 550;
+     font-size: 17px;
+}
+.bold-red-text{
+     margin-top: 10px;
+     margin-left: 20px;
+     color: #C20114;
+     font-weight: 600;
+     font-family: Montserrat;
+}
+
+/** end testimonial section **/
+
+
+/** footer **/
+
+
+.footer {
+     color: #fff;
+     background: #008080;
+     padding-top: 30px;
+     text-align: center;
+     font-family: Montserrat;
+}
+.white{
+     color: #fff;
+}
+.vertical-col span{
+    font-family: Montserrat;
+     font-size: 16px;
+     text-align: left;
+     margin-left: 20px;
+}
+
+
+.copyright {
+     padding: 20px 0px;
+     background-color: #008080;
+     font-family: Montserrat;
+}
+
+
+/** end footer **/
+
+
+.sign-up-container{
+    background-color: #fff;
+    padding: 30px;
+    margin: 100px auto;
+    min-width: 500px;
+    min-height: 400px;
+}
+.input{
+    width: 100%;
+    font-family: Montserrat;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+::placeholder{
+    color: black;
+    font-size: 16px;
+    font-family: Montserrat;
+}
+
+.aside{
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: 100px;
+    text-align: left;
+    font-family: Montserrat;
+    margin-bottom: 100px;
+}
+.side-bar{
+    background-color: #fff;
+    padding: 20px;
+    font-family: Montserrat;
+}
+.col-md{
+    width: 100%;
+     display: flex;
+     gap: 13px;
+   }
+
+.time-period{
+    justify-content: center;
+}
+
+.div-on{
+    z-index: 1;
+    padding: 20px 20px;
+    padding-right: 2rem;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+.airline-headers{
+    margin: 10px 5px;
+}
+.checkbox{
+    float: right;
+}
+.checkbox:checked{
+    accent-color: #008080;
+}
+.price{
+    padding: 5px;
+    color: #F8F8F8;
+    border-color: antiquewhite;
+    border-radius: 5px;
+}
