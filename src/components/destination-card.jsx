@@ -4,7 +4,7 @@ import stars from '../assets/stars.svg'
 
 const DestinationCard = () => {
   return (
-    <div className='bg-white shadow-lg rounded-lg w-1/5 mx-10'>
+    <div className='bg-white shadow-lg rounded-lg w-1/5 mx-10 font-Montserrat'>
       <div className='rounded-lg'>
         <img src={city} alt="" srcset="" />
 

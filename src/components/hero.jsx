@@ -13,7 +13,7 @@ const Hero = () => {
         <div className='items-center py-20'>
           <p className='text-white text-[40px] font-medium flex justify-center py-1'>Let's get you started on an adventure</p>
           <div className=' flex  mx-auto w-1/3'>
-            <p className='text-white text-[15px] font-semibold py-1'>
+            <p className='text-white text-[17px] font-light py-1'>
               Welcome to Airove, with just a few clicks, you can book a flight to any destination you desire
             </p>
           </div>
@@ -28,8 +28,8 @@ const Hero = () => {
             </div>
             {/* FLight */}
 
-            <div>
-              <div className='flex space-x-8'>
+            <div className='text-[14px]'>
+              <div className='flex space-x-8 p-4'>
                 <div className='mt-2'>
 
                   <select name="" id="" className='py-4 px-4 rounded-md text-primary border-gray-300 border-2 border-solid bg-white'>

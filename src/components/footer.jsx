@@ -4,10 +4,10 @@ import instagram from '../assets/instagram.svg'
 
 const Footer = () => {
   return (
-    <div className='bg-primary  justify-between py-10 px-10'>
+    <div className='bg-primary  justify-between py-10 px-10 font-Montserrat'>
       <div className='flex justify-between'>
         <div>
-          <p className='text-2xl text-white'>Airove</p>
+          <p className='text-2xl text-white font-Orbitron'>Airove</p>
 
         </div>
         <div>
