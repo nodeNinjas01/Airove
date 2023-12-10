@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import FlightSearch from '../components/flight-details'
 import profile from '../assets/icon.png'
 import { Link } from 'react-router-dom'
+import { AppContext } from '../context/context'
+import { useNavigate } from 'react-router-dom'
+
 
 const Flights = () => {
+  const { currentTicket } = useContext(AppContext)
+  const navigate = useNavigate()
+  console.log(currentTicket, 'FORMDATA');
   return (
     <div className='h-screen  font-Montserrat'>
       <Header />
@@ -196,19 +202,19 @@ const Flights = () => {
           {/* Bristish Airline */}
           <div className='flex flex-[0.8] my-4 justify-between h-2/6 border-2 rounded-lg shadow-lg px-3 py-16'>
             <div className='flex justify-between space-x-32 my-auto mx-4'>
-              <p className='text-blue-900 capitalize'>British Airways</p>
+              <p className='text-blue-900 capitalize'>{currentTicket?.airlineName}</p>
               <div className=''>
                 <p className='font-bold '>8:30</p>
-                <p className='text-gray-500'>Lagos (LOS)</p>
+                <p className='text-gray-500'>{currentTicket?.departureState}</p>
               </div>
               <div className='flex flex-col'>
-                <p className='mx-auto'>1 stop</p>
+                <p className='mx-auto'> {currentTicket?.formData?.trip == "One trip" ? "1": "2"} stop</p>
                 <hr className='w-[100px] h-[5px]' />
                 <p className='text-primary text-[15px] mx-auto'>10hrs 30m</p>
               </div>
               <div className=''>
                 <p className='font-bold'>18:30</p>
-                <p className='text-gray-500'>London (LHR)</p>
+                <p className='text-gray-500'>{currentTicket?.arrivalState}</p>
               </div>
             </div>
             <div className='flex'>
@@ -217,49 +223,30 @@ const Flights = () => {
 
               <div>
 
-                <p className='text-gray-500 my-4 text-[15px]'>Economy Class</p>
+                <p className='text-gray-500 my-4 text-[15px] capitalize'>{currentTicket?.formData?.class} class</p>
                 <p className='text-gray-500'>Total Price</p>
-                <p className='font-poppins my-2'>0.038BTC</p>
-                <Link to={'/flight-one'}> <p className='text-red-500 text-[15px]'>View Details</p></Link>
+                <p className='font-poppins my-2 font-semibold'>
+                  {
+                    currentTicket?.formData?.class === "economy"
+                      ? currentTicket?.economyPrice
+                      : currentTicket?.formData?.class === "business"
+                        ? currentTicket?.businessPrice
+                        : currentTicket?.firstClassPrice
+                  }
+                  BTC</p>
+                <p
+                  onClick={() => {
+
+                    navigate('/flight-one')
+                  }}
+                > <p className='text-red-500 text-[15px] hover:cursor-pointer'>View Details</p></p>
               </div>
 
             </div>
 
           </div>
 
-          {/* Qatar Airlies */}
-          <div className='flex  my-4 flex-[0.8] justify-between h-2/6 border-2 rounded-lg shadow-lg px-3 py-16'>
-            <div className='flex justify-between space-x-32 my-auto mx-4'>
-              <p className='text-blue-900 capitalize'>British Airways</p>
-              <div className=''>
-                <p className='font-bold '>8:30</p>
-                <p className='text-gray-500'>Lagos (LOS)</p>
-              </div>
-              <div className='flex flex-col'>
-                <p className='mx-auto'>1 stop</p>
-                <hr className='w-[100px] h-[5px]' />
-                <p className='text-primary text-[15px] mx-auto'>10hrs 30m</p>
-              </div>
-              <div className=''>
-                <p className='font-bold'>18:30</p>
-                <p className='text-gray-500'>London (LHR)</p>
-              </div>
-            </div>
-            <div className='flex'>
-              <hr className='' />
 
-
-              <div>
-
-                <p className='text-gray-500 my-4 text-[15px]'>Economy Class</p>
-                <p className='text-gray-500'>Total Price</p>
-                <p className='font-poppins my-2'>0.038BTC</p>
-                <p className='text-red-500 text-[15px]'>View Details</p>
-              </div>
-
-            </div>
-
-          </div>
 
         </div>
 

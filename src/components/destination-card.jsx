@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import city from '../assets/images/city.jpg'
 import stars from '../assets/stars.svg'
+import { AppContext } from '../context/context'
+import { useNavigate } from 'react-router-dom'
 
 const DestinationCard = ({ data, formData }) => {
+  const { currentTicket, setCurrentTicket } = useContext(AppContext)
+  const navigate = useNavigate()
   return (
     <div className='bg-white shadow-lg rounded-lg w-1/5 mx-10 font-Montserrat'>
       <div className='rounded-lg'>
@@ -30,7 +34,16 @@ const DestinationCard = ({ data, formData }) => {
           } BTC</p>
         </div>
         <div className='my-2'>
-          <p className='text-red-600 font-semibold text-[12px]'>View more details</p>
+          <p className='text-red-600 font-semibold text-[12px] hover:cursor-pointer'
+
+            onClick={() => {
+              const setData = { ...data, formData: formData }
+              setCurrentTicket(setData)
+              navigate('/flight')
+
+
+            }}
+          >View more details</p>
         </div>
       </div>
 

@@ -1,21 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import profile from '../assets/icon.png'
 import { data } from '../data'
 import { AppContext } from '../context/context'
 import { searchTickets } from '../services/actions/airove.actions'
+import { searchLoadingState } from '../services/actions/airove.actions'
 
 const Hero = ({ formData, setFormData }) => {
   const { tickets, setTickets, currentTicket, setCurrentTicket, searchedTicket, setSearchedTicket } = useContext(AppContext)
 
-  // const [formData, setFormData] = useState({
-  //   leaving: '',
-  //   goingto: '',
-  //   trip: '',
-  //   returnDate: '',
-  //   departureDate: '',
-  //   persons: '',
-  //   class: ''
-  // })
 
   const searchData = async (formData) => {
     const res = await searchTickets(formData)
@@ -26,6 +18,11 @@ const Hero = ({ formData, setFormData }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
 
   }
+  useEffect(() => {
+
+    console.log(searchLoadingState, 'SS');
+  }, [searchLoadingState, !searchLoadingState])
+
   return (
 
 
@@ -132,13 +129,18 @@ const Hero = ({ formData, setFormData }) => {
                 </div>
                 {/*Search Button */}
                 <div className='mt-4'>
+                  {searchLoadingState === true ?
 
+                    (<button
 
-                  <button
-                    onClick={() => {
-                      searchData(formData)
-                    }}
-                    className=' bg-red-600 py-4 px-8 rounded-lg text-white'> Search </button>
+                      className=' bg-red-600 py-4 px-8 rounded-lg text-white'> Loading </button>) :
+
+                    (<button
+                      onClick={() => {
+                        searchData(formData)
+                      }}
+                      className=' bg-red-600 py-4 px-8 rounded-lg text-white'> Search </button>)}
+
 
                 </div>
 

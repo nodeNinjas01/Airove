@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from '../components/header'
 import profile from '../assets/icon.png'
 import Footer from '../components/footer'
 import { Link } from 'react-router-dom'
+import { AppContext } from '../context/context'
 
 const FlightOne = () => {
+  const { currentTicket } = useContext(AppContext)
   return (
     <div>
       <Header />
@@ -41,24 +43,24 @@ const FlightOne = () => {
           <p className='font-bold text-primary'>Flight Details</p>
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Depature Airpot</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='text-[15px] font-poppins'>{currentTicket?.departureAirport}</p>
           </div>
 
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Arrival Airpot</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='text-[15px] font-poppins'>{currentTicket?.arrivalAirport}</p>
           </div>
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Stops</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='text-[15px] font-poppins'>{currentTicket?.formData?.trip == "One trip" ? "1" : "2"}</p>
           </div>
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Depature Date / Time</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='text-[15px] font-poppins'>{currentTicket?.departureDate}</p>
           </div>
           <div className='my-4'>
-            <p className='my-2 text-gray-500'>Arrival Date/Time</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='my-2 text-gray-500'>Flight Category</p>
+            <p className='text-[15px] font-poppins capitalize'>{currentTicket?.formData?.class} class</p>
           </div>
 
         </div>
@@ -66,20 +68,32 @@ const FlightOne = () => {
           <p className='text-primary font-semibold'>Price Details</p>
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Depature Ticket Fare</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='text-[15px] font-poppins font-semibold'>{
+              currentTicket?.formData?.class === "economy"
+                ? currentTicket?.economyPrice
+                : currentTicket?.formData?.class === "business"
+                  ? currentTicket?.businessPrice
+                  : currentTicket?.firstClassPrice
+            }BTC</p>
           </div>
 
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Tax</p>
-            <p className='text-[15px] font-poppins'>MMM International Airpot, Lagos</p>
+            <p className='text-[15px] font-poppins'>0.0%</p>
           </div>
           <div className='my-4'>
             <p className='my-2 text-gray-500'>Total Fare</p>
-            <p className='text-[15px] font-poppins'>0.03846BTC</p>
+            <p className='text-[15px] font-poppins font-semibold'> {
+              currentTicket?.formData?.class === "economy"
+                ? currentTicket?.economyPrice
+                : currentTicket?.formData?.class === "business"
+                  ? currentTicket?.businessPrice
+                  : currentTicket?.firstClassPrice
+            }BTC</p>
           </div>
 
           <div className='my-12 flex space-x-10'>
-            <p className='my-2 text-red-600 font-bold'>Edit Flight Details</p>
+            <p className='my-2 text-red-600 font-bold'>Flight Details</p>
             <Link to={'/flight-two'}>
               <p className='text-[15px] font-poppins bg-red-600 px-4 py-2 text-white rounded-md'>Proceed </p>
 

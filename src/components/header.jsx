@@ -1,11 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <div className='flex justify-between pt-8 px-14 pb-4 shadow-lg'>
 
       <div className='pt-2'>
-        <p className='text-2xl font-Orbitron'>Airove</p>
+        <p
+          onClick={() => {
+            navigate('/')
+          }}
+          className='text-2xl font-Orbitron hover:cursor-pointer'>Airove</p>
 
       </div>
       <div className=' flex space-x-20 pt-2 font-Montserrat'>
