@@ -25,9 +25,9 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
-      backgroundImage: {
-        "my-image": "url('./src/assets/images/background.svg')",
-      },
+      // backgroundImage: {
+      //   "my-image": "url('./src/assets/images/background.svg')",
+      // },
       colors: {
         "primary": '#008080',
         "primary-light": '#0085C6',

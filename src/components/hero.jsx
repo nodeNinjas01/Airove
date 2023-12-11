@@ -5,6 +5,8 @@ import { AppContext } from '../context/context'
 import { searchTickets } from '../services/actions/airove.actions'
 import { searchLoadingState } from '../services/actions/airove.actions'
 
+
+
 const Hero = ({ formData, setFormData }) => {
   const { tickets, setTickets, currentTicket, setCurrentTicket, searchedTicket, setSearchedTicket } = useContext(AppContext)
 
@@ -28,7 +30,7 @@ const Hero = ({ formData, setFormData }) => {
 
     <div className='flex flex-col h-4/5 relative w-full'>
 
-      <div className=' bg-my-image h-4/5 z-0 absolute w-full bg-cover bg-right'>
+      <div className='bg-[url("assets/images/background.svg")] h-4/5 z-0 absolute w-full bg-cover bg-right'>
 
         <div className='items-center py-20'>
           <p className='text-white text-[40px] font-medium flex justify-center py-1'>Let's get you started on an adventure</p>
