@@ -4,12 +4,15 @@ import Footer from '../components/footer'
 import { useNavigate } from 'react-router-dom'
 import { generateWallet } from '../services/actions/airove.actions'
 import { AppContext } from '../context/context'
+import { bitcoinPrice } from '../data'
+import { toast } from 'react-toastify'
 
 const FlightTwo = () => {
 
   const navigate = useNavigate()
   const { generatedWallet, setGeneratedWallet, currentTicket } = useContext(AppContext)
   const [loadingState, setLoadingState] = useState(false)
+
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -18,20 +21,26 @@ const FlightTwo = () => {
     phone: '',
     nationality: '',
     gender: '',
-    price_amount: '',
+    price_amount: 0,
     customer_did: ''
   })
-
+  const navigateFunction = () => {
+    navigate('/flight-three')
+  }
 
 
   const handleGenerateWallet = async (formData) => {
     setLoadingState(true)
 
-    const res = await generateWallet(formData)
-    console.log(res, 'Wallet Response');
-    setLoadingState(false)
-    setGeneratedWallet(res)
+    const res = await generateWallet(formData, navigateFunction)
+    if (res?.res_status) {
+      toast.success('Wallet generated successfully')
+      setLoadingState(false)
+      setGeneratedWallet(res)
 
+    } else {
+      toast.warning('Error occured while trying to generate wallet')
+    }
     return res
   }
 
@@ -46,7 +55,8 @@ const FlightTwo = () => {
         ? currentTicket?.businessPrice
         : currentTicket?.firstClassPrice
 
-    setFormData({ ...formData, price_amount: amt })
+    const userData = localStorage.getItem('airove') ? JSON.parse(localStorage.getItem('airove')) : ''
+    setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.did })
 
 
   }, [])
@@ -94,11 +104,11 @@ const FlightTwo = () => {
         <div className='flex flex-1 space-x-2'>
           <div className='flex-[0.5]'>
             <p className='font-light my-2'>First Name</p>
-            <input type="text" name="firstname" id="" className='w-full border-[1px] rounded-sm h-[50px] p-3' onChange={(e) => handleChange(e)} />
+            <input type="text" name="firstname" id="" className='w-full border-[1px] rounded-sm h-[50px] p-3' onChange={(e) => handleChange(e)} required />
           </div>
           <div className='flex-[0.5]'>
             <p className='font-light my-2'>Last Name</p>
-            <input type="text" name="lastname" id="" className='w-full p-3  border-[1px] rounded-sm h-[50px]' onChange={(e) => handleChange(e)} />
+            <input type="text" name="lastname" id="" className='w-full p-3  border-[1px] rounded-sm h-[50px]' onChange={(e) => handleChange(e)} required />
           </div>
 
 
@@ -111,7 +121,7 @@ const FlightTwo = () => {
           <div className='my-4 w-1/4'>
             <p className='font-light my-2'>Nationality</p>
             <div>
-              <select name="nationality" id="" className='w-full font-light bg-white rounded-sm border px-4 py-3' onChange={(e) => handleChange(e)} >
+              <select name="nationality" id="" className='w-full font-light bg-white rounded-sm border px-4 py-3' onChange={(e) => handleChange(e)} required >
                 <option value="">Nigerian</option>
               </select>
             </div>
@@ -119,7 +129,7 @@ const FlightTwo = () => {
           <div className='my-4 w-1/4'>
             <p className='font-light my-2'>Gender</p>
             <div>
-              <select name="gender" id="" className='w-full font-light bg-white rounded-sm border px-4 py-3' onChange={(e) => handleChange(e)} >
+              <select name="gender" id="" className='w-full font-light bg-white rounded-sm border px-4 py-3' onChange={(e) => handleChange(e)} required>
                 <option value="">Male</option>
                 <option value="">Female</option>
                 <option value="">Others</option>
@@ -129,7 +139,7 @@ const FlightTwo = () => {
           <div className='my-4 w-1/4'>
             <p className='font-light my-2'>Date Of Birth</p>
             <div>
-              <input name="dob" type='date' className='w-full font-light  bg-white rounded-sm border px-4 py-2' onChange={(e) => handleChange(e)} />
+              <input name="dob" type='date' className='w-full font-light  bg-white rounded-sm border px-4 py-2' onChange={(e) => handleChange(e)} required />
 
 
             </div>
@@ -137,7 +147,7 @@ const FlightTwo = () => {
           <div className='my-4 w-1/4'>
             <p className='font-light my-2'>Phone Number</p>
             <div>
-              <input name="phone" type='number' className='w-full font-light  bg-white rounded-sm border px-4 py-2' onChange={(e) => handleChange(e)} />
+              <input name="phone" type='text' className='w-full font-light  bg-white rounded-sm border px-4 py-2' onChange={(e) => handleChange(e)} required />
 
             </div>
           </div>
@@ -149,7 +159,7 @@ const FlightTwo = () => {
             <div className='w-2/4'>
               <p className='font-light my-2'>Email Address</p>
               <div>
-                <input type='text' name="email" id="" className='w-full font-light bg-white rounded-sm border px-4 py-3' onChange={(e) => handleChange(e)} />
+                <input type='text' name="email" id="" className='w-full font-light bg-white rounded-sm border px-4 py-3' onChange={(e) => handleChange(e)} required />
 
               </div>
             </div>
@@ -162,11 +172,12 @@ const FlightTwo = () => {
 
                 <button
                   onClick={() => {
-                    const res = handleGenerateWallet()
-                    if (res?.error == undefined) {
-                      navigate('/flight-three')
-
+                    if (formData?.email !== '' && formData?.phone !== '' && formData?.firstname !== '' && formData?.lastname !== '' && formData?.dob !== '') {
+                      console.log(formData, 'Wallet for data');
+                      handleGenerateWallet(formData)
                     }
+
+
                   }}
                   className='px-6 py-3 bg-red-600 rounded-sm text-white font-Montserrat' type="button">
                   Generate Payment Address

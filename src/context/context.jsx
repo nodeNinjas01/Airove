@@ -11,6 +11,7 @@ export const ContextProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState({})
   const [generatedWallet, setGeneratedWallet] = useState({})
   const [searchTicketLoadingState, setSearchTicketLoadingState] = useState(false)
+  const [loggedInUser, setLoggedInUser] = useState(null)
 
   return (
     <>
@@ -26,7 +27,9 @@ export const ContextProvider = ({ children }) => {
         generatedWallet,
         setGeneratedWallet,
         searchTicketLoadingState,
-        setSearchTicketLoadingState
+        setSearchTicketLoadingState,
+        loggedInUser,
+        setLoggedInUser
 
       }}>
         {children}

@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/context'
+import { useContext } from 'react'
 const Header = () => {
   const navigate = useNavigate()
+  const { loggedInUser, setLoggedInUser } = useContext(AppContext)
+  const userData = localStorage.getItem('airove') ? JSON.parse(localStorage.getItem('airove')) : ''
   return (
     <div className='flex justify-between pt-8 px-14 pb-4 shadow-lg'>
 
@@ -21,13 +25,29 @@ const Header = () => {
 
 
       </div>
-      <div className='flex space-x-2'>
-        <p className='text-red-500 p-2'>Sign In</p>
-        <Link to={'/sign-up'}>
+      {userData ? <div className='flex space-x-2'>
 
-          <p className='bg-red-600 px-4 py-2 text-white rounded-md'>Sign up</p></Link>
+        <p className='px-4 py-2 bg-red-600 rounded-lg text-white'>
+          {userData?.data?.user}
 
-      </div>
+
+        </p>
+        <button
+          onClick={() => {
+            setLoggedInUser(null)
+            localStorage.clear()
+          }}
+          className='bg-red-600 rounded-lg text-white px-4 py-2'>Log out</button>
+      </div> :
+
+        <div className='flex space-x-2'>
+          <Link to={'/sign-in'}>
+            <p className='text-red-500 p-2 hover:cursor-pointer'>Sign In</p></Link>
+          <Link to={'/sign-up'}>
+
+            <p className='bg-red-600 px-4 py-2 text-white rounded-md'>Sign up</p></Link>
+
+        </div>}
 
 
     </div>
