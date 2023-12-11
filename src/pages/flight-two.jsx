@@ -22,7 +22,7 @@ const FlightTwo = () => {
     nationality: '',
     gender: '',
     price_amount: 0,
-    customer_did: ''
+    customer_did: null
   })
   const navigateFunction = () => {
     navigate('/flight-three')
@@ -55,8 +55,12 @@ const FlightTwo = () => {
         ? currentTicket?.businessPrice
         : currentTicket?.firstClassPrice
 
-    const userData = localStorage.getItem('airove') ? JSON.parse(localStorage.getItem('airove')) : ''
-    setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.did })
+    const userData = localStorage.getItem('airove') ? JSON.parse(localStorage.getItem('airove')) : null
+    if (userData) {
+      setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.did })
+
+    }
+    console.log(formData?.customer_did, 'DID');
 
 
   }, [])
@@ -163,27 +167,34 @@ const FlightTwo = () => {
 
               </div>
             </div>
-            <div className='mt-8'>
-              {loadingState ? <button
+            {formData?.customer_did === null ? <button
+            onClick={()=>{
+              navigate('/sign-in')
+            }}
+            className='bg-red-600 mt-8 px-4 py-2 rounded-sm text-white'>Please Login</button> :
 
-                className='px-6 py-3 bg-red-600 rounded-sm text-white font-Montserrat' type="button">
-                Generating wallet .......
-              </button> :
+              <div className='mt-8'>
+                {loadingState ? <button
 
-                <button
-                  onClick={() => {
-                    if (formData?.email !== '' && formData?.phone !== '' && formData?.firstname !== '' && formData?.lastname !== '' && formData?.dob !== '') {
-                      console.log(formData, 'Wallet for data');
-                      handleGenerateWallet(formData)
-                    }
-
-
-                  }}
                   className='px-6 py-3 bg-red-600 rounded-sm text-white font-Montserrat' type="button">
-                  Generate Payment Address
-                </button>
-              }
-            </div>
+                  Generating wallet .......
+                </button> :
+
+                  <button
+                    onClick={() => {
+                      if (formData?.email !== '' && formData?.phone !== '' && formData?.firstname !== '' && formData?.lastname !== '' && formData?.dob !== '') {
+                        console.log(formData, 'Wallet for data');
+                        handleGenerateWallet(formData)
+                      }
+
+
+                    }}
+                    className='px-6 py-3 bg-red-600 rounded-sm text-white font-Montserrat' type="button">
+                    Generate Payment Address
+                  </button>
+                }
+              </div>
+            }
           </div>
 
 
