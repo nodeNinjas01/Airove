@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import profile from '../assets/icon.png'
+import { data } from '../data'
+import { AppContext } from '../context/context'
+import { searchTickets } from '../services/actions/airove.actions'
+import { searchLoadingState } from '../services/actions/airove.actions'
+
+const Hero = ({ formData, setFormData }) => {
+  const { tickets, setTickets, currentTicket, setCurrentTicket, searchedTicket, setSearchedTicket } = useContext(AppContext)
 
 
-const Hero = () => {
+  const searchData = async (formData) => {
+    const res = await searchTickets(formData)
+    setSearchedTicket(res)
+  }
+
+  const handleChange = async (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+
+  }
+  useEffect(() => {
+
+    console.log(searchLoadingState, 'SS');
+  }, [searchLoadingState, !searchLoadingState])
+
   return (
 
 
@@ -32,15 +52,19 @@ const Hero = () => {
               <div className='flex space-x-8 p-4'>
                 <div className='mt-2'>
 
-                  <select name="" id="" className='py-4 px-4 rounded-md text-primary border-gray-300 border-2 border-solid bg-white'>
-                    <option value="">One trip</option>
+                  <select name="trip" id="" className='py-4 px-4 rounded-md text-primary border-gray-300 border-2 border-solid bg-white' onChange={(e) => handleChange(e)}>
+                    <option value="One trip">One trip</option>
+                    <option value="Round trip">Round trip</option>
                   </select>
                 </div>
 
                 <div className='mt-2'>
 
-                  <select name="" id="" className='py-4 px-4 rounded-md text-primary border-gray-300 border-2 border-solid bg-white'>
-                    <option value="">Economy </option>
+                  <select name="class" id="" className='py-4 px-4 rounded-md text-primary border-gray-300 border-2 border-solid bg-white' onChange={(e) => handleChange(e)}>
+                    <option value="economy">Economy </option>
+
+                    <option value="business">Business class </option>
+                    <option value="first">First class </option>
                   </select>
                 </div>
 
@@ -50,8 +74,10 @@ const Hero = () => {
                 <div className='mt-2 flex  space-x-2 border-2 p-3 rounded-lg'>
                   <div>
                     <p className='text-gray-500'>Leaving</p>
-                    <select name="" id="" className=' bg-white'>
-                      <option value="" className='text-primary'>Select state</option>
+                    <select name="leaving" id="" className=' bg-white' onChange={(e) => handleChange(e)}>
+                      {tickets?.map((e, index) =>
+                        <option value={e.departureState} key={index} className='text-primary'>{e.departureState}</option>
+                      )}
                     </select>
                   </div>
                   <div className='bg-primary h-[50px]'>
@@ -61,8 +87,10 @@ const Hero = () => {
                   </div>
                   <div>
                     <p className='text-gray-500'>Going to</p>
-                    <select name="" id="" className='bg-white'>
-                      <option value="" className='text-primary'>Select state</option>
+                    <select name="goingto" id="" className='bg-white' onChange={(e) => handleChange(e)}>
+                      {tickets?.map((e, index) =>
+                        <option value={e.arrivalState} key={index} className='text-primary'>{e.arrivalState}</option>
+                      )}
                     </select>
                   </div>
 
@@ -73,7 +101,7 @@ const Hero = () => {
                 <div className='mt-2 flex  space-x-2 border-2 p-3 rounded-lg'>
                   <div>
                     <p className='text-gray-500'>Depature date</p>
-                    <input type='date' />
+                    <input type='date' name='departureDate' onChange={(e) => handleChange(e)} />
                   </div>
                   <div className='bg-primary h-[50px]'>
                     <hr className='bg-primary w-[1px]' />
@@ -82,7 +110,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <p className='text-gray-500'>Return date</p>
-                    <input type='date' />
+                    <input type='date' name='returnDate' onChange={(e) => handleChange(e)} />
                   </div>
 
 
@@ -91,15 +119,28 @@ const Hero = () => {
 
                 <div className='mt-2 flex  items-center space-x-2 border-2 p-3 rounded-lg bg-white'>
                   <img src={profile} alt="" sizes='' className='h-[20px]' />
-                  <select className='bg-white'>
+                  <select className='bg-white' name='persons' onChange={(e) => handleChange(e)} >
                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
 
                   </select>
                 </div>
                 {/*Search Button */}
                 <div className='mt-4'>
+                  {searchLoadingState === true ?
 
-                  <p className=' bg-red-600 py-4 px-8 rounded-lg text-white'> Search </p>
+                    (<button
+
+                      className=' bg-red-600 py-4 px-8 rounded-lg text-white'> Loading </button>) :
+
+                    (<button
+                      onClick={() => {
+                        searchData(formData)
+                      }}
+                      className=' bg-red-600 py-4 px-8 rounded-lg text-white'> Search </button>)}
+
 
                 </div>
 

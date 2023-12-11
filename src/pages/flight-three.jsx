@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import { AppContext } from '../context/context'
 
 const FlightThree = () => {
+  const { generatedWallet, currentTicket } = useContext(AppContext)
+ 
   return (
     <div>
       <Header />
@@ -36,11 +39,24 @@ const FlightThree = () => {
       {/* /Passengr Details */}
       <div className=' mx-8 mt-20 p-10 rounded-lg shadow-lg my-10' >
         <p className='text-3xl text-primary my-4'>Payment Details</p>
-        <p className='mb-8 text-gray-500 font-light text-[20px]'>Kindly pay <span className='font-bold'>0.04BTC</span> to the  <span className='font-bold'> "Bitocoin" </span>  address that was generated for you. A verifiable credential will be sent to your email once the payment is confirmed from our end.<br></br>Thank you for your patronage.</p>
+        <p className='mb-8 text-gray-500 font-light text-[20px]'>Kindly pay <span className='font-bold'>{
+          currentTicket?.formData?.class === "economy"
+            ? currentTicket?.economyPrice
+            : currentTicket?.formData?.class === "business"
+              ? currentTicket?.businessPrice
+              : currentTicket?.firstClassPrice
+        }BTC</span> to the  <span className='font-bold'> "Bitcoin" </span>  address that was generated for you. A verifiable credential will be sent to your email once the payment is confirmed from our end.<br></br>Thank you for your patronage.</p>
         <div className='flex'>
           <div className='w-full'>
-            <p className='font-light my-2'>Generated Bitcoin Address - <span className='font-bold'>0.04BTC</span></p>
-            <input type="text" name="" id="" className='w-full flex  items-center border-[1px] rounded-sm h-[50px] p-3' value="XHDND04384NDNDCSJSDJCDJDCJDCDDJDJDSD" />
+            <p className='font-light my-2'>Generated Bitcoin Address - <span className='font-bold'>
+              {
+                currentTicket?.formData?.class === "economy"
+                  ? currentTicket?.economyPrice
+                  : currentTicket?.formData?.class === "business"
+                    ? currentTicket?.businessPrice
+                    : currentTicket?.firstClassPrice
+              }BTC</span></p>
+            <input type="text" name="" id="" className='w-full flex  items-center border-[1px] rounded-sm h-[50px] p-3' value={generatedWallet?.data?.wallet?.data?.pay_address} />
           </div>
 
 
