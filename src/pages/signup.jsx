@@ -31,13 +31,25 @@ const SignUp = ({ type }) => {
       const customer_did = localStorage.getItem('customer_did')
       const res_with_did = { ...res, customer_did: JSON.stringify(customer_did) }
       localStorage.setItem('airove', JSON.stringify(res_with_did))
-      toast.success('Login successful')
+      if (type === "login") {
+        toast.success('Login successful')
+      } else {
+        toast.success('Signup successful')
+      }
+
       setLoadingState(false)
       navigate('/')
 
     } else {
       setLoadingState(false)
-      toast.warning("Login not successful. The DID on this device isnt tied to this phonenumber/username.")
+      if (type === "login") {
+        toast.warning("Login not successful. The DID on this device isnt tied to this phonenumber/username.")
+
+      } else {
+        toast.warning("Sign up not successful. The DID on this device is already linked to another phonenumber/username.")
+
+
+      }
     }
 
   }
