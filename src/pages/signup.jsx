@@ -70,7 +70,6 @@ const SignUp = ({ type }) => {
       if (web5 && did) {
         localStorage.setItem('customer_did', JSON.stringify(did))
         setFormData({ ...formData, customer_did: did })
-        console.log(web5, did);
         await configureProtocol(web5, did);
       }
     };

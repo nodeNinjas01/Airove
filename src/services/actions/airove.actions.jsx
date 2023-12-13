@@ -48,13 +48,12 @@ export const login = async (formData) => {
   try {
     const response = await API.post('/login', formData)
     const res = { ...response, res_status: true }
-    console.log(res, 'RESSS');
+  
 
 
     return res
   } catch (error) {
     const err = { ...error, res_status: false }
-    console.log(err, 'ERRPR');
 
     return err
 
