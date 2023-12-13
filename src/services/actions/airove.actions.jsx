@@ -28,9 +28,10 @@ export const generateWallet = async (formData, navigateFunction) => {
   try {
 
     const response = await API.post('/generate-wallet', formData)
- 
+
     navigateFunction()
     const res = { ...response, res_status: true }
+    console.log(res, response);
 
 
     return res
@@ -48,7 +49,7 @@ export const login = async (formData) => {
   try {
     const response = await API.post('/login', formData)
     const res = { ...response, res_status: true }
-  
+
 
 
     return res
