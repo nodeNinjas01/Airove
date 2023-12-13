@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { useNavigate } from 'react-router-dom'
@@ -6,13 +6,18 @@ import { AppContext } from '../context/context'
 import { login } from '../services/actions/airove.actions'
 import { toast } from 'react-toastify'
 
+
+import { Web5 } from '@web5/api/browser';
+
+
 const SignUp = ({ type }) => {
   const navigate = useNavigate()
   const { loggedInUser, setLoggedInUser } = useContext(AppContext)
   const [loadingState, setLoadingState] = useState(false)
   const [formData, setFormData] = useState({
     phoneNumber: '',
-    passphrase: ''
+    passphrase: '',
+    customer_did: ''
   })
 
 
@@ -23,14 +28,16 @@ const SignUp = ({ type }) => {
 
     if (res?.res_status) {
       setLoggedInUser(res)
-      localStorage.setItem('airove', JSON.stringify(res))
+      const customer_did = localStorage.getItem('customer_did')
+      const res_with_did = { ...res, customer_did: JSON.stringify(customer_did) }
+      localStorage.setItem('airove', JSON.stringify(res_with_did))
       toast.success('Login successful')
       setLoadingState(false)
       navigate('/')
 
     } else {
       setLoadingState(false)
-      toast.warning('Login not successful')
+      toast.warning("Login not successful. The DID on this device isnt tied to this phonenumber/username.")
     }
 
   }
@@ -39,6 +46,32 @@ const SignUp = ({ type }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
 
   }
+
+
+
+
+  useEffect(() => {
+
+    const initWeb5 = async () => {
+      console.log('web5 initialization called');
+      const { web5, did } = await Web5.connect({ sync: '5s' });
+      if (web5 && did) {
+        localStorage.setItem('customer_did', JSON.stringify(did))
+        setFormData({ ...formData, customer_did: did })
+        console.log(web5, did);
+        await configureProtocol(web5, did);
+      }
+    };
+    if (!localStorage.getItem('customer_did')) {
+      initWeb5()
+    } else {
+      const customer_did = localStorage.getItem('customer_did')
+      setFormData({ ...formData, customer_did: JSON.stringify(customer_did) })
+    }
+
+
+  }, [])
+
 
   return (
     <div>
@@ -90,3 +123,105 @@ const SignUp = ({ type }) => {
 }
 
 export default SignUp
+
+
+
+
+
+const queryLocalProtocol = async (web5) => {
+  return await web5.dwn.protocols.query({
+    message: {
+      filter: {
+        protocol: 'https://airrove/tickets',
+      },
+    },
+  });
+};
+
+//console.log('this is where Query remote protocol is')
+const queryRemoteProtocol = async (web5, did) => {
+  return await web5.dwn.protocols.query({
+    from: did,
+    message: {
+      filter: {
+        protocol: 'https://airrove/tickets',
+      },
+    },
+  });
+};
+
+// console.log('this is where we install local protocol')
+const installLocalProtocol = async (web5, protocolDefinition) => {
+  return await web5.dwn.protocols.configure({
+    message: {
+      definition: protocolDefinition,
+    },
+  });
+};
+
+//  console.log('this is where we install remote protocol')
+const installRemoteProtocol = async (web5, did, protocolDefinition) => {
+  const { protocol } = await web5.dwn.protocols.configure({
+    message: {
+      definition: protocolDefinition,
+    },
+  });
+  return await protocol.send(did);
+};
+
+export const defineNewProtocol = () => {
+  return {
+    protocol: 'https://airrove/tickets',
+    published: true,
+    types: {
+      publishedTickets: {
+        schema: 'https://schema.org/TravelAction',
+        dataFormats: ['application/json'],
+      },
+      userTickets: {
+        schema: 'https://schema.org/TravelAction',
+        dataFormats: ['application/json'],
+      },
+    },
+    structure: {
+      publishedTickets: {
+        $actions: [
+          { who: 'anyone', can: 'read' },
+          { who: 'author', of: 'publishedTickets', can: 'write' },
+        ],
+      },
+      userTickets: {
+        $actions: [
+          { who: 'author', of: 'userTickets', can: 'read' },
+          { who: 'recipient', of: 'userTickets', can: 'read' },
+          { who: 'anyone', can: 'write' },
+        ],
+      },
+    },
+  };
+};
+
+const configureProtocol = async (web5, did) => {
+  const protocolDefinition = defineNewProtocol();
+  const protocolUrl = protocolDefinition.protocol;
+
+  const { protocols: localProtocols, status: localProtocolStatus } =
+    await queryLocalProtocol(web5, protocolUrl);
+  if (localProtocolStatus.code !== 200 || localProtocols.length === 0) {
+    const result = await installLocalProtocol(web5, protocolDefinition);
+    console.log({ result });
+    console.log('Protocol installed locally');
+  }
+
+  const { protocols: remoteProtocols, status: remoteProtocolStatus } =
+    await queryRemoteProtocol(web5, did, protocolUrl);
+  if (remoteProtocolStatus.code !== 200 || remoteProtocols.length === 0) {
+    const result = await installRemoteProtocol(web5, did, protocolDefinition);
+    console.log({ result });
+    console.log('Protocol installed remotely');
+  }
+};
+
+
+
+

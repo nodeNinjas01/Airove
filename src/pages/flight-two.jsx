@@ -57,7 +57,7 @@ const FlightTwo = () => {
 
     const userData = localStorage.getItem('airove') ? JSON.parse(localStorage.getItem('airove')) : null
     if (userData) {
-      setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.did })
+      setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.customer_did })
 
     }
     console.log(formData?.customer_did, 'DID');
@@ -168,10 +168,10 @@ const FlightTwo = () => {
               </div>
             </div>
             {formData?.customer_did === null ? <button
-            onClick={()=>{
-              navigate('/sign-in')
-            }}
-            className='bg-red-600 mt-8 px-4 py-2 rounded-sm text-white'>Please Login</button> :
+              onClick={() => {
+                navigate('/sign-in')
+              }}
+              className='bg-red-600 mt-8 px-4 py-2 rounded-sm text-white'>Please Login</button> :
 
               <div className='mt-8'>
                 {loadingState ? <button

@@ -23,7 +23,7 @@ const LandingPage = () => {
   const fetchData = async () => {
     const res = await getTickets()
     setTickets(res)
-    console.log(tickets);
+
 
   }
 

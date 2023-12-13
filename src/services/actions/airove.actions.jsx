@@ -26,9 +26,9 @@ export const getTickets = async () => {
 
 export const generateWallet = async (formData, navigateFunction) => {
   try {
-    console.log(formData, 'Wallet formdata');
+
     const response = await API.post('/generate-wallet', formData)
-    console.log(response, 'Walet response');
+ 
     navigateFunction()
     const res = { ...response, res_status: true }
 
@@ -46,14 +46,15 @@ export const generateWallet = async (formData, navigateFunction) => {
 
 export const login = async (formData) => {
   try {
-    console.log(formData, 'Wallet formdata');
     const response = await API.post('/login', formData)
-    console.log(response, 'Walet response');
     const res = { ...response, res_status: true }
+    console.log(res, 'RESSS');
+
 
     return res
   } catch (error) {
-    const err = { ...err, res_status: false }
+    const err = { ...error, res_status: false }
+    console.log(err, 'ERRPR');
 
     return err
 

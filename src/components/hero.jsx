@@ -22,7 +22,6 @@ const Hero = ({ formData, setFormData }) => {
   }
   useEffect(() => {
 
-    console.log(searchLoadingState, 'SS');
   }, [searchLoadingState, !searchLoadingState])
 
   return (
