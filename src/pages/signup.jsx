@@ -46,7 +46,7 @@ const SignUp = ({ type }) => {
         toast.warning("Login not successful. The DID on this device isnt tied to this phonenumber/username.")
 
       } else {
-        toast.warning("Sign upnot successful. The DID on this device is already linked to another phonenumber/username.")
+        toast.warning("Sign up not successful. The DID on this device is already linked to another phonenumber/username.")
 
 
       }
