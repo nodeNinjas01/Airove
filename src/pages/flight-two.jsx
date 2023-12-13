@@ -30,6 +30,7 @@ const FlightTwo = () => {
 
 
   const handleGenerateWallet = async (formData) => {
+
     setLoadingState(true)
 
     const res = await generateWallet(formData, navigateFunction)
@@ -57,10 +58,11 @@ const FlightTwo = () => {
 
     const userData = localStorage.getItem('airove') ? JSON.parse(localStorage.getItem('airove')) : null
     if (userData) {
-      setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.customer_did })
+      console.log(userData, 'userData', userData?.data?.did);
+      setFormData({ ...formData, price_amount: amt * bitcoinPrice, customer_did: userData?.data?.did })
 
     }
-    console.log(formData?.customer_did, 'DID');
+
 
 
   }, [])
