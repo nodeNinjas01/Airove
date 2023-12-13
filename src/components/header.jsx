@@ -35,7 +35,7 @@ const Header = () => {
         <button
           onClick={() => {
             setLoggedInUser(null)
-            localStorage.clear()
+            localStorage.removeItem('airove')
           }}
           className='bg-red-600 rounded-lg text-white px-4 py-2'>Log out</button>
       </div> :
