@@ -15,26 +15,26 @@ export const data = [
   {
     "departureState": "Port-Harcourt",
     "arrivalState": "Beijing",
-    "airlineName": "KLM Airline",
+    "airlineName": "British Airways",
     "departureDate": "13-01-2024",
     "businessPrice": 0.05,
     "economyPrice": 0.04,
     "firstClassPrice": 0.8,
-    "departureAirport": "Muritala Airport",
-    "arrivalAirport": "Frankfurt Airport",
+    "departureAirport": "Sir Arthur Idiong Airport",
+    "arrivalAirport": "Kin Zin Airport",
     "recordId": "bafyreihws4bctobytnd5afk7pzj6fjocbrhnwozaqjjszs4nv4qulkrxje",
     "did": "did:ion:EiAJg6J4RSvFoE6cmEg4KaJ17q-or1HKK19EFIPDS_2n4Q:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoiZWdkMjZGVWRUUFJJTDRYNjNNYXpCbzhfYVZGN2ZGdGZlYjRMS09XVkdEOCJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJjQkRWck0yU05QU2tnOHIxZ2c1Yml3NS1xSGo0RDhkV1ZocHo1NjVWN3IwIiwieSI6ImtncGdLVndUSDhVb2Q5c01LM25hd2tITUt5cnFIWGtmT1dYZlQtVmtOT3cifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduMiIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduMyJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlBUkFwWGZvaHBGaW4xODBWYUxEMmtKU293bDhnWU5nTTY3Z2NxRU9XVGc4USJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpRGcxVlh0am1mQUg5SnVsazBWZmFFR2MxVW9Fa0JodWRNZDVuMl9YdTY4VkEiLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaURzTlZIdEh4bXp0OUNhWGJUQWg1UWFYZ2ZURFcxNm91V1Y5Q19rYVRCcFVBIn19"
   },
   {
     "departureState": "Abuja",
-    "arrivalState": "Quebec",
+    "arrivalState": "Kigali",
     "airlineName": "Emirates",
-    "departureDate": "13-01-2024",
+    "departureDate": "01-09-2024",
     "businessPrice": 0.05,
     "economyPrice": 0.04,
     "firstClassPrice": 0.8,
     "departureAirport": "Nnamdi Azikiwe Airport",
-    "arrivalAirport": "Frankfurt Airport",
+    "arrivalAirport": "Kigali IV Airport",
     "recordId": "bafyreidtar7gho6g4nxfagacvrx4kpdmmkcg3hhoxf2weyfzp5vdlnw5tu",
     "did": "did:ion:EiAJg6J4RSvFoE6cmEg4KaJ17q-or1HKK19EFIPDS_2n4Q:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoiZWdkMjZGVWRUUFJJTDRYNjNNYXpCbzhfYVZGN2ZGdGZlYjRMS09XVkdEOCJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJjQkRWck0yU05QU2tnOHIxZ2c1Yml3NS1xSGo0RDhkV1ZocHo1NjVWN3IwIiwieSI6ImtncGdLVndUSDhVb2Q5c01LM25hd2tITUt5cnFIWGtmT1dYZlQtVmtOT3cifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduMiIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduMyJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlBUkFwWGZvaHBGaW4xODBWYUxEMmtKU293bDhnWU5nTTY3Z2NxRU9XVGc4USJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpRGcxVlh0am1mQUg5SnVsazBWZmFFR2MxVW9Fa0JodWRNZDVuMl9YdTY4VkEiLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaURzTlZIdEh4bXp0OUNhWGJUQWg1UWFYZ2ZURFcxNm91V1Y5Q19rYVRCcFVBIn19"
   },
@@ -42,23 +42,23 @@ export const data = [
     "departureState": "Kano",
     "arrivalState": "Moscow",
     "airlineName": "Emirates",
-    "departureDate": "13-01-2024",
+    "departureDate": "13-03-2024",
     "businessPrice": 0.0025,
     "economyPrice": 0.0034,
-    "firstClassPrice": 0.0086,
+    "firstClassPrice": 0.086,
     "departureAirport": "Mallam Aminu Kano Airport",
     "arrivalAirport": "Zhukovsky International Airport",
     "recordId": "bafyreiawoubrcc4vsppqljj4ffxglehqxb5asdz3bbaycvb72aw3peodwu",
     "did": "did:ion:EiAJg6J4RSvFoE6cmEg4KaJ17q-or1HKK19EFIPDS_2n4Q:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoiZWdkMjZGVWRUUFJJTDRYNjNNYXpCbzhfYVZGN2ZGdGZlYjRMS09XVkdEOCJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJjQkRWck0yU05QU2tnOHIxZ2c1Yml3NS1xSGo0RDhkV1ZocHo1NjVWN3IwIiwieSI6ImtncGdLVndUSDhVb2Q5c01LM25hd2tITUt5cnFIWGtmT1dYZlQtVmtOT3cifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduMiIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduMyJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlBUkFwWGZvaHBGaW4xODBWYUxEMmtKU293bDhnWU5nTTY3Z2NxRU9XVGc4USJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpRGcxVlh0am1mQUg5SnVsazBWZmFFR2MxVW9Fa0JodWRNZDVuMl9YdTY4VkEiLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaURzTlZIdEh4bXp0OUNhWGJUQWg1UWFYZ2ZURFcxNm91V1Y5Q19rYVRCcFVBIn19"
   },
   {
-    "departureState": "Kano",
-    "arrivalState": "Atlanta",
+    "departureState": "Enugu",
+    "arrivalState": "New York",
     "airlineName": "Emirates",
-    "departureDate": "13-01-2024",
-    "businessPrice": 0.0025,
-    "economyPrice": 0.0034,
-    "firstClassPrice": 0.0086,
+    "departureDate": "12-01-2024",
+    "businessPrice": 0.025,
+    "economyPrice": 0.014,
+    "firstClassPrice": 0.086,
     "departureAirport": "Mallam Aminu Kano Airport",
     "arrivalAirport": "Hartsfield-Jackson Atlanta International Airport",
     "recordId": "bafyreid4wjq6n5dzncrymp74t6vnyh2i2kebca5vkjplyoaysmdm35ftdy",
@@ -67,4 +67,4 @@ export const data = [
 ]
 
 
-export const  bitcoinPrice = 41000
+export const bitcoinPrice = 41000

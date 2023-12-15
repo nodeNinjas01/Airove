@@ -5,6 +5,7 @@ import Destinations from '../components/destinations'
 import Footer from '../components/footer'
 import { getTickets, searchTickets } from '../services/actions/airove.actions'
 import { AppContext } from '../context/context'
+import { data } from '../data'
 
 const LandingPage = () => {
 
@@ -21,8 +22,9 @@ const LandingPage = () => {
   })
 
   const fetchData = async () => {
-    const res = await getTickets()
-    setTickets(res)
+    // const res = await getTickets()
+
+    setTickets(data)
 
 
   }
