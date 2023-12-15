@@ -12,8 +12,9 @@ const Hero = ({ formData, setFormData }) => {
 
 
   const searchData = async (formData) => {
-    const res = await searchTickets(formData)
-    setSearchedTicket(res)
+    // const res = await searchTickets(formData)
+    // setSearchedTicket(res)
+    customSearchFunction()
   }
 
   const handleChange = async (e) => {
@@ -23,6 +24,19 @@ const Hero = ({ formData, setFormData }) => {
   useEffect(() => {
 
   }, [searchLoadingState, !searchLoadingState])
+
+  const customSearchFunction = () => {
+    data?.filter((e, index) => {
+
+      if (formData?.goingto === e?.arrivalState && formData?.leaving === e?.departureState) {
+        
+        setSearchedTicket(([])=>[...[], e])
+
+      }
+    })
+
+
+  }
 
   return (
 
